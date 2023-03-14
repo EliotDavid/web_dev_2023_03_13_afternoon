@@ -13,18 +13,18 @@ import com.jihoon.board.filter.JwtAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig {
+public class WebSecurityConfig { // config에 WebSecurityConfig 얘는 뭐하는 애지?
 
     @Autowired private JwtAuthenticationFilter jwtAuthenticationFilter;
     
     @Bean
-    protected SecurityFilterChain config(HttpSecurity httpSecurity) throws Exception {
+    protected SecurityFilterChain config(HttpSecurity httpSecurity) throws Exception { // 이 밑에 애들은 뭘 의미하는건지 하나도 모르겠음
         httpSecurity
             .cors().and()
             .csrf().disable()
             .httpBasic().disable()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-            .authorizeRequests().antMatchers("/**").permitAll()
+            .authorizeRequests().antMatchers("/auth/**").permitAll()
             .anyRequest().authenticated();
 
         httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

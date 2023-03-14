@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Data
 @Embeddable
-public class LikeyPk implements Serializable{
+public class LikyPk implements Serializable{
    
     @Column(name = "user_email")
     private String userEmail;

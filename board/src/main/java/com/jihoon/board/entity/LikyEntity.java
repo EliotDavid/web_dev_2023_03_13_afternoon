@@ -2,11 +2,10 @@ package com.jihoon.board.entity;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.IdClass;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
-import com.jihoon.board.entity.primarykey.LikeyPk;
+import com.jihoon.board.entity.primarykey.LikyPk;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,8 +18,9 @@ import lombok.NoArgsConstructor;
 @Table(name = "Liky")
 public class LikyEntity {
     
+    @Id
     @Embedded
-    private LikeyPk likeyPk;
+    private LikyPk likeyPk;
 
     private String userProfileurl;
     private String userNickName;
